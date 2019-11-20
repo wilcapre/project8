@@ -1,0 +1,31 @@
+extends layout.pug
+
+block content
+
+    h1 Update Book
+      if errorMessages
+        h2.error Errors! 
+          ul 
+          each error in errorMessages 
+            li= error.message 
+
+    form(method='POST', action=`/books/${book.id}/edit`)
+      p
+        label(for='title') Title
+        input#title(name='title', type='text', value= book.title)
+      p
+        label(for='author') Author
+        input#author(name='author', type='text', value= book.author)
+      p
+        label(for='genre') Genre
+        input#genre(name='genre', type='text', value= book.genre)
+      p
+        label(for='year') Year
+        input#year(name='year', type='text', value= book.year)
+      p
+        input(type='submit', value='Update Book')
+      p
+        a.button(href='/books') Cancel
+    
+    form(method='POST', action=`/books/${book.id}/delete`)
+      input(type='submit', value='Delete Book')

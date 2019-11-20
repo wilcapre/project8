@@ -1,0 +1,31 @@
+extends layout.pug
+
+block content
+  h1 New Book 
+    if errorMessages
+      h2.error Errors! 
+        ul 
+        each error in errorMessages 
+          li= error.message 
+    
+    form(method='POST', action='/books')  
+      br
+      label(for='title') Title
+      input#title(name='title', type='text')
+      
+      br
+      label(for='author') Author
+      input#author(name='author', type='text')
+      
+      br
+      label(for='genre') Genre
+      input#genre(name='genre', type='text')
+
+      br
+      label(for='year') Year
+      input#year(name='year', type='text')
+      
+      br
+      input(type='submit', value='Create New Book')
+      
+      a.button(href='/books') Cancel
