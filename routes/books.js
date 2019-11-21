@@ -2,10 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Book = require ('../models').Book;
 
-// Error Handling page
-//function pageNotfound(){}
-
-
 /* Get books listing*/
 router.get('/', async (req, res) => {
 /* Reorder in descending order  */
